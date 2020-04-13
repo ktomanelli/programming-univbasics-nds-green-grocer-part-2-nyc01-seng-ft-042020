@@ -4,6 +4,11 @@ def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
+  cart.length.times do |i|
+    if(find_item_by_name_in_collection(cart[i][:item], coupons)!=nil)
+      
+    end
+  end
 end
 
 def apply_clearance(cart)
