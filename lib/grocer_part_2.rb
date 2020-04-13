@@ -6,13 +6,14 @@ def apply_coupons(cart, coupons)
   # REMEMBER: This method **should** update cart
   cart.length.times do |i|
     if(find_item_by_name_in_collection(cart[i][:item], coupons)!=nil)
-      activeCoupon = coupons.select{|item| item[:item]==cart[i][:item]}
-      if(cart[i][:count]<=activeCoupon[:num])
+      activeCoupon = coupons.select{|item| item[:item]==cart[i][:item]}[0]
+      if(cart[i][:count] >= activeCoupon[:num])
         coupCount = (cart[i][:count]/activeCoupon[:num]).floor()
         cart[i][:count]-=(activeCoupon[:num]*coupCount)
-        newItem = cart[i]
-        newItem[:item]=cart[i][:item]+"W/COUPON"
-        newItem[:price] = activeCoupon[:price]*coupCount
+        newItem = cart[i].clone
+        newItem[:item]=cart[i][:item]+" W/COUPON"
+        newItem[:price] = activeCoupon[:cost]*coupCount
+        newItem[:count] = activeCoupon[:num]*coupCount
         cart.push(newItem);
       end
     end
