@@ -7,7 +7,15 @@ def apply_coupons(cart, coupons)
   cart.length.times do |i|
     if(find_item_by_name_in_collection(cart[i][:item], coupons)!=nil)
       activeCoupon = coupons.select{|item| item[:item]==cart[i][:item]}
-      puts activeCoupon
+      if(cart[i][:count]<=activeCoupon[:num])
+        cart[i][:count]-=(activeCoupon[:num])
+        cart.push({
+          :item =>"#{cart[i][:item}",
+          :price =>
+        })
+    
+        
+      end
     end
   end
 end
