@@ -25,6 +25,11 @@ def apply_clearance(cart)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
+    onClearance = cart.select{|item| item[:clearance]==true}
+    onClearance.length.times do |i|
+        onClearance[i][:price]-=(onClearance[i][:price]*.2)
+    end
+    cart
 end
 
 def checkout(cart, coupons)
