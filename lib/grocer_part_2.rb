@@ -6,7 +6,8 @@ def apply_coupons(cart, coupons)
   # REMEMBER: This method **should** update cart
   cart.length.times do |i|
     if(find_item_by_name_in_collection(cart[i][:item], coupons)!=nil)
-      coupons.select{}
+      activeCoupon = coupons.select{|item| item[:item]==cart[i][:item]}
+      
     end
   end
 end
