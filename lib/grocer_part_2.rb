@@ -49,5 +49,9 @@ def checkout(cart, coupons)
   myCart.length.times do |i|
     total += myCart[i][:price]*myCart[i][:count]
   end
+  if(total>100)
+    total-=(total*.1)
+  end
   total
+  
 end
