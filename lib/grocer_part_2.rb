@@ -27,7 +27,7 @@ def apply_clearance(cart)
   # REMEMBER: This method **should** update cart
     onClearance = cart.select{|item| item[:clearance]==true}
     onClearance.length.times do |i|
-        onClearance[i][:price]-=(onClearance[i][:price]*(.2))
+        onClearance[i][:price]-=(onClearance[i][:price]*(0.2))
     end
     cart
 end
