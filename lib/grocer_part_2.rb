@@ -43,8 +43,7 @@ def checkout(cart, coupons)
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
   myCart = consolidate_cart(cart)
-  apply_coupons(myCart,coupons)
-  apply_clearance(myCart)
+  apply_clearance(apply_coupons(myCart,coupons))
   total=0
   myCart.length.times do |i|
     total += myCart[i][:price]
