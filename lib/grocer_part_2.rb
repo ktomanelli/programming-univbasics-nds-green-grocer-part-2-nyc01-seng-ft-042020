@@ -10,10 +10,10 @@ def apply_coupons(cart, coupons)
       if(cart[i][:count]<=activeCoupon[:num])
         coupCount = (cart[i][:count]/activeCoupon[:num]).floor()
         cart[i][:count]-=(activeCoupon[:num]*coupCount)
-        cart.push({
-          :item =>"#{cart[i][:item}",
-          :price =>"#{activeCoupon[:price]*coupCount}"
-        })
+        newItem = cart[i]
+        newItem[:item]=cart[i][:item}
+        newItem[:price] = {activeCoupon[:price]*coupCount}]
+        cart.push(newItem);
     
         
       end
