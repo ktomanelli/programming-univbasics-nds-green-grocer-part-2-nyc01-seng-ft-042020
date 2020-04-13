@@ -8,10 +8,11 @@ def apply_coupons(cart, coupons)
     if(find_item_by_name_in_collection(cart[i][:item], coupons)!=nil)
       activeCoupon = coupons.select{|item| item[:item]==cart[i][:item]}
       if(cart[i][:count]<=activeCoupon[:num])
-        cart[i][:count]-=(cart[i][:count]/activeCoupon[:num])
+        coupCount = (cart[i][:count]/activeCoupon[:num]).floor()
+        cart[i][:count]-=(activeCoupon[:num]*coupCount)
         cart.push({
           :item =>"#{cart[i][:item}",
-          :price =>
+          :price =>"#{activeCoupon[:price]*coupCount}"
         })
     
         
