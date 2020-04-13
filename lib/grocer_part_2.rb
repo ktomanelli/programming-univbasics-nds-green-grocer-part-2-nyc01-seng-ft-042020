@@ -14,8 +14,6 @@ def apply_coupons(cart, coupons)
         newItem[:item]=cart[i][:item}
         newItem[:price] = {activeCoupon[:price]*coupCount}]
         cart.push(newItem);
-    
-        
       end
     end
   end
